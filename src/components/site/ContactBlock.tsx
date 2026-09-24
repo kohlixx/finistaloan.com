@@ -1,0 +1,3 @@
+import { MapPin, Phone } from "lucide-react";
+import { LeadForm } from "./LeadForm";
+export function ContactBlock(){return <div className="grid gap-12 lg:grid-cols-[.72fr_1fr]"><div><span className="eyebrow">Talk to FININSTA</span><h2 className="mt-3 font-heading text-4xl font-bold">One conversation can make the next step clearer.</h2><p className="mt-4 leading-7 text-muted-foreground">Tell Gaurav and the FININSTA team what you need. We support borrowers across Delhi NCR and eligible customers throughout India.</p><div className="mt-8 grid gap-4"><a className="contact-link" href="tel:+917827881951"><Phone/>+91 78278 81951</a><span className="contact-link"><MapPin/>Delhi NCR · Serving PAN India</span></div></div><LeadForm/></div>}
