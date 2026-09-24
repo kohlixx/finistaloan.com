@@ -11,10 +11,12 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as BanksRouteImport } from './routes/banks'
 import { Route as BlogsRouteImport } from './routes/blogs'
 import { Route as CalculatorRouteImport } from './routes/calculator'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as InvestmentInsuranceRouteImport } from './routes/investment-insurance'
+import { Route as NbfcRouteImport } from './routes/nbfc'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as BlogsIndexRouteImport } from './routes/blogs.index'
@@ -29,6 +31,11 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BanksRoute = BanksRouteImport.update({
+  id: '/banks',
+  path: '/banks',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogsRoute = BlogsRouteImport.update({
@@ -49,6 +56,11 @@ const ContactRoute = ContactRouteImport.update({
 const InvestmentInsuranceRoute = InvestmentInsuranceRouteImport.update({
   id: '/investment-insurance',
   path: '/investment-insurance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NbfcRoute = NbfcRouteImport.update({
+  id: '/nbfc',
+  path: '/nbfc',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -80,10 +92,12 @@ const LoansSlugRoute = LoansSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/banks': typeof BanksRoute
   '/blogs': typeof BlogsRouteWithChildren
   '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
   '/investment-insurance': typeof InvestmentInsuranceRoute
+  '/nbfc': typeof NbfcRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
   '/blogs/$slug': typeof BlogsSlugRoute
@@ -93,9 +107,11 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/banks': typeof BanksRoute
   '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
   '/investment-insurance': typeof InvestmentInsuranceRoute
+  '/nbfc': typeof NbfcRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
   '/blogs/$slug': typeof BlogsSlugRoute
@@ -106,10 +122,12 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/banks': typeof BanksRoute
   '/blogs': typeof BlogsRouteWithChildren
   '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
   '/investment-insurance': typeof InvestmentInsuranceRoute
+  '/nbfc': typeof NbfcRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
   '/blogs/$slug': typeof BlogsSlugRoute
@@ -121,10 +139,12 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/banks'
     | '/blogs'
     | '/calculator'
     | '/contact'
     | '/investment-insurance'
+    | '/nbfc'
     | '/privacy'
     | '/terms'
     | '/blogs/$slug'
@@ -134,9 +154,11 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/banks'
     | '/calculator'
     | '/contact'
     | '/investment-insurance'
+    | '/nbfc'
     | '/privacy'
     | '/terms'
     | '/blogs/$slug'
@@ -146,10 +168,12 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/banks'
     | '/blogs'
     | '/calculator'
     | '/contact'
     | '/investment-insurance'
+    | '/nbfc'
     | '/privacy'
     | '/terms'
     | '/blogs/$slug'
@@ -160,10 +184,12 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  BanksRoute: typeof BanksRoute
   BlogsRoute: typeof BlogsRouteWithChildren
   CalculatorRoute: typeof CalculatorRoute
   ContactRoute: typeof ContactRoute
   InvestmentInsuranceRoute: typeof InvestmentInsuranceRoute
+  NbfcRoute: typeof NbfcRoute
   PrivacyRoute: typeof PrivacyRoute
   TermsRoute: typeof TermsRoute
   LoansSlugRoute: typeof LoansSlugRoute
@@ -183,6 +209,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/banks': {
+      id: '/banks'
+      path: '/banks'
+      fullPath: '/banks'
+      preLoaderRoute: typeof BanksRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blogs': {
@@ -211,6 +244,13 @@ declare module '@tanstack/react-router' {
       path: '/investment-insurance'
       fullPath: '/investment-insurance'
       preLoaderRoute: typeof InvestmentInsuranceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nbfc': {
+      id: '/nbfc'
+      path: '/nbfc'
+      fullPath: '/nbfc'
+      preLoaderRoute: typeof NbfcRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -266,10 +306,12 @@ const BlogsRouteWithChildren = BlogsRoute._addFileChildren(BlogsRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  BanksRoute: BanksRoute,
   BlogsRoute: BlogsRouteWithChildren,
   CalculatorRoute: CalculatorRoute,
   ContactRoute: ContactRoute,
   InvestmentInsuranceRoute: InvestmentInsuranceRoute,
+  NbfcRoute: NbfcRoute,
   PrivacyRoute: PrivacyRoute,
   TermsRoute: TermsRoute,
   LoansSlugRoute: LoansSlugRoute,
