@@ -1,2 +1,28 @@
 import { Link } from "@tanstack/react-router";
-export function Logo(){return <Link to="/" className="group inline-flex items-center gap-2" aria-label="FININSTA home"><span className="grid size-10 place-items-center rounded-xl bg-primary text-primary-foreground shadow-lg shadow-primary/20"><svg viewBox="0 0 32 32" className="size-6" fill="none" aria-hidden="true"><path d="M7 24V8h18M8 17h11M8 12h16" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/><path d="m18 24 7-7" stroke="var(--gold)" strokeWidth="3" strokeLinecap="round"/></svg></span><span><b className="block font-heading text-xl leading-none text-foreground">FININSTA</b><small className="mt-1 block text-[9px] font-semibold uppercase tracking-[.18em] text-muted-foreground">Financial Services</small></span></Link>}
+
+export function Logo() {
+    return (
+        <Link
+            to="/"
+            className="group inline-flex items-center gap-2"
+            aria-label="FININSTA home"
+        >
+            {/* Nayi image wala logo (public folder se) */}
+            <img
+                src="/logo.png"
+                alt="FININSTA Logo"
+                className="size-10 object-contain transition-transform duration-300 group-hover:scale-105"
+            />
+
+            {/* Text theme logo ke colors ke hisaab se (Deep Navy Blue aur Light Blue) */}
+            <span>
+                <b className="block font-heading text-xl leading-none text-[#0F254B]">
+                    FININSTA
+                </b>
+                <small className="mt-1 block text-[9px] font-semibold uppercase tracking-[.18em] text-[#3482B9]">
+                    Financial Services
+                </small>
+            </span>
+        </Link>
+    );
+}
