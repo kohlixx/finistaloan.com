@@ -113,7 +113,7 @@ function HomePage() {
       </section>
 
       {/* Baaki sabhi sections same as original */}
-      <section className="trust-bar"><div className="container-wide grid grid-cols-2 lg:grid-cols-4">{[["5,000+", "Customers assisted"], ["30+", "Banking partners"], ["98%", "Positive outcomes*"], ["24×7", "WhatsApp access"]].map(([n, l]) => <div key={l}><b>{n}</b><span>{l}</span></div>)}</div></section>
+      <section className="trust-bar"><div className="container-wide grid grid-cols-2 lg:grid-cols-4">{[["10,000+", "Customers assisted"], ["30+", "Banking partners"], ["98%", "Positive outcomes*"], ["24×7", "WhatsApp access"]].map(([n, l]) => <div key={l}><b>{n}</b><span>{l}</span></div>)}</div></section>
       <section className="section"><div className="container-wide"><SectionHead eyebrow="Financial solutions" title="One partner for every major milestone" copy="Explore practical borrowing, protection and investment guidance shaped around your profile." /><ServicesGrid /></div></section>
       <section className="section bg-secondary"><div className="container-wide"><SectionHead eyebrow="Why FININSTA" title="Clarity before commitment" /><WhyUs /></div></section>
       <section className="section"><div className="container-wide"><SectionHead eyebrow="EMI calculator" title="Plan the monthly payment first" copy="Use a reducing-balance estimate to explore a repayment range that feels manageable." /><EmiCalculator /></div></section>

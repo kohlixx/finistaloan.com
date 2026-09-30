@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { pageMeta } from "@/lib/seo";
 import { SectionHead, CTA } from "@/components/site/Sections";
 import { motion } from "framer-motion";
+import { whatsappUrl } from "@/content/site";
 
 export const Route = createFileRoute("/banks")({
     head: () => ({
@@ -10,17 +11,17 @@ export const Route = createFileRoute("/banks")({
     component: BanksPage
 });
 
-// Yahan har bank ka official link (url) add kar diya gaya hai
+// Saare external URLs hata diye gaye hain taaki clients website chhod kar na jayein
 const banksList = [
-    { name: "HDFC Bank", url: "https://www.hdfcbank.com/", logo: "/logos/hdfc.png" },
-    { name: "State Bank of India", url: "https://sbi.co.in/", logo: "/logos/sbi.png" },
-    { name: "ICICI Bank", url: "https://www.icicibank.com/", logo: "/logos/icici.png" },
-    { name: "Canara Bank", url: "https://canarabank.com/", logo: "/logos/canara.png" },
-    { name: "Bank of Baroda", url: "https://www.bankofbaroda.in/", logo: "/logos/bob.png" },
-    { name: "Central Bank of India", url: "https://www.centralbankofindia.co.in/", logo: "/logos/central.png" },
-    { name: "Bank of Maharashtra", url: "https://bankofmaharashtra.in/", logo: "/logos/maharashtra.png" },
-    { name: "Bank of India", url: "https://bankofindia.co.in/", logo: "/logos/boi.png" },
-    { name: "Axis Bank", url: "https://www.axisbank.com/", logo: "/logos/axis.png" },
+    { name: "HDFC Bank", logo: "/logos/hdfc.png" },
+    { name: "State Bank of India", logo: "/logos/sbi.png" },
+    { name: "ICICI Bank", logo: "/logos/icici.png" },
+    { name: "Canara Bank", logo: "/logos/canara.png" },
+    { name: "Bank of Baroda", logo: "/logos/bob.png" },
+    { name: "Central Bank of India", logo: "/logos/central.png" },
+    { name: "Bank of Maharashtra", logo: "/logos/maharashtra.png" },
+    { name: "Bank of India", logo: "/logos/boi.png" },
+    { name: "Axis Bank", logo: "/logos/axis.png" },
 ];
 
 function BanksPage() {
@@ -28,7 +29,6 @@ function BanksPage() {
         <>
             <section className="pt-24 pb-16 min-h-[70vh] bg-background">
                 <div className="container-wide">
-                    {/* Yahan par PAN India services aur All Banks ki taglines add ki gayi hain */}
                     <SectionHead
                         eyebrow="PAN India Network"
                         title="Loans From All Major Banks"
@@ -44,18 +44,17 @@ function BanksPage() {
                                 transition={{ delay: i * 0.1, duration: 0.5 }}
                                 viewport={{ once: true }}
                             >
-                                {/* <a> tag ka use kiya gaya hai direct website open karne ke liye */}
+                                {/* External link ki jagah WhatsApp URL lagaya gaya hai pre-filled message ke sath */}
                                 <a
-                                    href={bank.url}
+                                    href={whatsappUrl(`Hello FININSTA, I want to apply for a loan through ${bank.name}. Please guide me.`)}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    /* Hover border ko naye blue theme me update kiya hai */
                                     className="flex flex-col items-center justify-center p-5 border border-border/60 rounded-2xl bg-card shadow-sm hover:shadow-lg hover:border-[#3482B9]/50 transition-all group h-full cursor-pointer"
                                 >
                                     <div className="h-40 w-full flex items-center justify-center mb-4 px-2">
                                         <img
                                             src={bank.logo}
-                                            alt={`${bank.name} Official Website`}
+                                            alt={`${bank.name} Partner`}
                                             className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
                                             onError={(e) => {
                                                 e.currentTarget.style.display = 'none';
@@ -63,8 +62,12 @@ function BanksPage() {
                                             }}
                                         />
                                     </div>
-                                    {/* Text hover color ko naye blue theme me update kiya hai */}
                                     <h3 className="font-semibold text-center text-foreground text-xl group-hover:text-[#3482B9] transition-colors">{bank.name}</h3>
+
+                                    {/* Client ko clear message dene ke liye hover par ye text dikhega */}
+                                    <span className="text-xs font-bold uppercase text-[#3482B9] mt-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                                        Apply via FININSTA &rarr;
+                                    </span>
                                 </a>
                             </motion.div>
                         ))}
