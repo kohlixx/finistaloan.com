@@ -8,7 +8,7 @@ import { money, whatsappUrl } from "@/content/site";
 
 export function EmiCalculator() {
     const [amount, setAmount] = useState(5000000);
-    const [rate, setRate] = useState(8.5);
+    const [rate, setRate] = useState(7.0); // YAHAN PAR 8.5 KO CHANGE KARKE 7.0 KAR DIYA GAYA HAI
     const [years, setYears] = useState(20);
 
     const r = calculateEmi(amount, rate, years);
