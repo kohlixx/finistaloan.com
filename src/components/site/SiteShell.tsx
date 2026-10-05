@@ -99,7 +99,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
                 </Button>
                 {top && <Button size="icon" className="size-11 rounded-full shadow-lg bg-white border border-[#3482B9]/20 text-[#0F254B] hover:bg-[#F8FBFE]" onClick={() => scrollTo({ top: 0, behavior: "smooth" })} aria-label="Back to top"><ArrowUp /></Button>}
             </div>
-            
+
             <nav className="fixed inset-x-2 bottom-2 z-30 flex h-16 items-center justify-around rounded-lg border bg-background/95 px-1 shadow-2xl backdrop-blur-xl md:hidden">
                 <Link to="/" aria-label="Home" className="mobile-nav-item hover:text-[#3482B9]"><House /><span>Home</span></Link>
                 <Link to="/calculator" aria-label="Calculator" className="mobile-nav-item hover:text-[#3482B9]"><Calculator /><span>EMI</span></Link>
@@ -114,13 +114,13 @@ function Footer() {
     return (
         <footer className="bg-[#0A1325] pb-24 pt-16 text-white md:pb-8 border-t-4 border-[#3482B9]">
             <div className="container-wide grid gap-10 md:grid-cols-4">
-                
+
                 {/* Brand & Identity */}
                 <div>
                     <Logo />
                     <p className="mt-5 max-w-xs text-sm text-gray-400 leading-relaxed">FININSTA is Delhi NCR’s premier financial consultancy. We specialize in fast, hassle-free loan approvals and financial guidance across New Delhi, Gurugram, Noida, and PAN India.</p>
                 </div>
-                
+
                 {/* Explore Links */}
                 <div>
                     <h3 className="font-heading font-bold text-lg mb-6">Explore</h3>
@@ -132,7 +132,7 @@ function Footer() {
                     </div>
                 </div>
 
-                {/* NCR SEO Links (Properly routed to Loan pages) */}
+                {/* NCR SEO Links */}
                 <div>
                     <h3 className="font-heading font-bold text-lg mb-6">NCR Services</h3>
                     <div className="mt-4 grid gap-3 text-sm text-gray-400">
@@ -149,7 +149,9 @@ function Footer() {
                     <h3 className="font-heading font-bold text-lg mb-6">Speak to us</h3>
                     <div className="space-y-4 text-sm text-gray-400 mt-4">
                         <p>Delhi NCR Headquarters<br />Serving PAN India</p>
-                        <a href="tel:+917827881951" className="inline-block font-numbers text-lg font-semibold text-white hover:text-[#3482B9] transition-colors">+91 78278 81951</a>
+                        <a href="tel:+917827881951" className="block font-numbers text-lg font-semibold text-white hover:text-[#3482B9] transition-colors">+91 78278 81951</a>
+                        {/* Yahan Email Id add ki gayi hai */}
+                        <a href="mailto:info@fininstafinancialservices.com" className="block font-medium text-white hover:text-[#3482B9] transition-colors">info@fininstafinancialservices.com</a>
                         <p className="pt-2 text-xs text-[#3482B9]">Available 24x7 on WhatsApp</p>
                     </div>
                 </div>
@@ -161,9 +163,9 @@ function Footer() {
                     <span>© {new Date().getFullYear()} FININSTA Financial Services. All rights reserved.</span>
                     <p>
                         Designed & Developed by{' '}
-                        <a 
-                            href="https://www.instagram.com/kohlix.1/?hl=en" 
-                            target="_blank" 
+                        <a
+                            href="https://www.instagram.com/kohlix.1/?hl=en"
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="text-[#3482B9] hover:text-white font-bold tracking-wider transition-colors uppercase"
                         >
