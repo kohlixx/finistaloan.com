@@ -17,23 +17,40 @@ export const Route = createFileRoute("/about")({
 function AboutPage() {
     return (
         <>
-            {/* Hero Section */}
-            <section className="pt-32 pb-20 bg-[#0F254B] text-white overflow-hidden relative">
-                <div className="absolute inset-0 opacity-10 bg-[url('/grid-pattern.svg')]"></div>
-                <div className="container-wide relative z-10 text-center max-w-4xl mx-auto">
-                    <span className="eyebrow text-[#3482B9] font-bold tracking-widest uppercase mb-4 block">
+            <section className="bg-gradient-to-r from-[#0A1325] via-[#0F254B] to-[#3482B9] py-12 lg:py-16 overflow-hidden">
+                <div className="container-wide">
+                    <motion.span 
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="eyebrow block text-[#93C5FD] font-bold tracking-[0.15em] mb-2 text-xs uppercase"
+                    >
                         About The Company
-                    </span>
-                    <h1 className="text-4xl md:text-6xl font-bold font-heading leading-tight mb-6">
+                    </motion.span>
+                    
+                    {/* Yahan Heading par Slide-In aur Fade animation lagaya gaya hai */}
+                    <motion.h1 
+                        initial={{ opacity: 0, x: -50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+                        className="font-heading text-3xl font-bold sm:text-4xl text-white"
+                    >
                         Making Finance Simple, Fast, and Transparent.
-                    </h1>
-                    <p className="text-lg md:text-xl text-gray-300">
+                    </motion.h1>
+                    
+                    {/* Paragraph par bhi halka sa delay motion de diya hai */}
+                    <motion.p 
+                        initial={{ opacity: 0, x: -30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
+                        className="mt-3 max-w-2xl text-base text-blue-100/90"
+                    >
                         FININSTA is Delhi NCR’s most trusted financial consultancy, dedicated to bridging the gap between borrowers and top-tier banks with instant facilitation.
-                    </p>
+                    </motion.p>
                 </div>
             </section>
 
-            {/* Founder Section (The Main Highlight) */}
+            {/* Founder Section */}
             <section className="py-24 bg-background">
                 <div className="container-wide">
                     <div className="flex flex-col lg:flex-row items-center gap-16">
@@ -110,9 +127,8 @@ function AboutPage() {
                                 </div>
                             </div>
 
-                            {/* LinkedIn Button - PASTE YOUR LINK HERE */}
                             <a
-                                href="LINKEDIN_URL_HERE"
+                                href="https://www.linkedin.com/in/fininstafinancial-services-596425441"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 bg-[#0077b5] hover:bg-[#005885] text-white px-6 py-3 rounded-xl font-medium transition-colors shadow-lg hover:shadow-xl"
