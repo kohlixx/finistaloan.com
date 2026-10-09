@@ -9,11 +9,16 @@ import { allServices, blogPosts, partners, whatsappUrl } from "@/content/site";
 export function SectionHead({ eyebrow, title, copy }: { eyebrow: string; title: string; copy?: string }) {
     return (
         <div className="mx-auto mb-10 max-w-2xl text-center">
-            <span className="eyebrow bg-gradient-to-r from-[#3482B9] to-[#0F254B] bg-clip-text text-transparent font-bold tracking-wider">{eyebrow}</span>
-            <h2 className="mt-3 text-balance font-heading text-3xl font-bold md:text-5xl text-[#0F254B]">{title}</h2>
+            {/* Transparent gradient hata kar solid high-contrast dark navy color de diya hai */}
+            <span className="block text-[#0F254B] font-extrabold tracking-[0.25em] text-xs uppercase mb-2">
+                {eyebrow}
+            </span>
+            <h2 className="mt-3 text-balance font-heading text-3xl font-bold md:text-5xl text-[#0F254B]">
+                {title}
+            </h2>
             {copy && <p className="mt-4 text-muted-foreground">{copy}</p>}
         </div>
-    )
+    );
 }
 
 const serviceCategories = [
@@ -62,11 +67,11 @@ export function ServicesGrid({ limit }: { limit?: number }) {
                         <Link key={s.slug} to="/investment-insurance" className="service-card group border border-transparent hover:border-[#3482B9]/20 transition-all">{body}</Link>
                     ) : (
                         <Link key={s.slug} to="/loans/$slug" params={{ slug: s.slug }} className="service-card group border border-transparent hover:border-[#3482B9]/20 transition-all">{body}</Link>
-                    )
+                    );
                 })}
             </div>
         </div>
-    )
+    );
 }
 
 const reasons = [
@@ -89,7 +94,7 @@ export function WhyUs() {
                 </div>
             ))}
         </div>
-    )
+    );
 }
 
 export function PartnerMarquee() {
@@ -103,7 +108,7 @@ export function PartnerMarquee() {
                 ))}
             </div>
         </div>
-    )
+    );
 }
 
 export const homeFaqs = [
@@ -127,7 +132,7 @@ export function Faqs({ items = homeFaqs }: { items?: { q: string; a: string }[] 
                 </AccordionItem>
             ))}
         </Accordion>
-    )
+    );
 }
 
 export function BlogGrid({ limit = 6 }: { limit?: number }) {
@@ -145,10 +150,10 @@ export function BlogGrid({ limit = 6 }: { limit?: number }) {
                             Read guide <ArrowRight className="size-4 text-[#3482B9] transition-transform group-hover:translate-x-1" />
                         </span>
                     </Link>
-                )
+                );
             })}
         </div>
-    )
+    );
 }
 
 export function Testimonials() {
@@ -176,7 +181,7 @@ export function Testimonials() {
                 <Button variant="outline" size="icon" className="border-[#0F254B]/20 text-[#0F254B] hover:bg-[#0F254B] hover:text-white" onClick={() => api?.scrollNext()} aria-label="Next testimonial"><ArrowRight /></Button>
             </div>
         </Carousel>
-    )
+    );
 }
 
 export function CTA() {
@@ -196,5 +201,5 @@ export function CTA() {
                 </Button>
             </div>
         </section>
-    )
+    );
 }
