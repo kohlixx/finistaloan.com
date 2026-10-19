@@ -19,7 +19,7 @@ function AboutPage() {
         <>
             <section className="bg-gradient-to-r from-[#0A1325] via-[#0F254B] to-[#3482B9] py-10 lg:py-12 overflow-hidden">
                 <div className="container-wide">
-                    <motion.span 
+                    <motion.span
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
@@ -27,8 +27,8 @@ function AboutPage() {
                     >
                         About The Company
                     </motion.span>
-                    
-                    <motion.h1 
+
+                    <motion.h1
                         initial={{ opacity: 0, x: -40 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
@@ -36,8 +36,8 @@ function AboutPage() {
                     >
                         Making Finance Simple, Fast, and Transparent.
                     </motion.h1>
-                    
-                    <motion.p 
+
+                    <motion.p
                         initial={{ opacity: 0, x: -25 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6, ease: "easeOut", delay: 0.25 }}
@@ -48,12 +48,10 @@ function AboutPage() {
                 </div>
             </section>
 
-            {/* Founder Section - Spacing reduced from py-24 to py-12 md:py-14 */}
             <section className="py-12 md:py-14 bg-background">
                 <div className="container-wide">
                     <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
 
-                        {/* Founder Image */}
                         <motion.div
                             initial={{ opacity: 0, x: -40 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -81,7 +79,6 @@ function AboutPage() {
                             </div>
                         </motion.div>
 
-                        {/* Founder Details */}
                         <motion.div
                             initial={{ opacity: 0, x: 40 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -107,7 +104,6 @@ function AboutPage() {
                                 </p>
                             </div>
 
-                            {/* Key Achievements Grid */}
                             <div className="grid sm:grid-cols-2 gap-3 mb-6">
                                 <div className="bg-[#F8FBFE] p-3.5 rounded-xl border border-[#3482B9]/20 flex items-center gap-3">
                                     <div className="p-2.5 bg-[#3482B9]/10 rounded-lg text-[#3482B9]"><Briefcase size={20} /></div>
@@ -126,7 +122,7 @@ function AboutPage() {
                             </div>
 
                             <a
-                                href="https://www.linkedin.com/in/fininstafinancial-services-596425441"
+                                href="https://www.linkedin.com/in/fininsta-financial-services-34723a445?utm_source=share_via&utm_content=profile&utm_medium=member_android"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 bg-[#0A66C2] hover:bg-[#004182] text-white px-5 py-2.5 rounded-xl font-medium transition-colors shadow-md hover:shadow-lg text-sm"
@@ -139,7 +135,6 @@ function AboutPage() {
                 </div>
             </section>
 
-            {/* Huge Milestones Section - Spacing reduced from py-20 to py-12 */}
             <section className="py-12 bg-[#0F254B] text-white">
                 <div className="container-wide">
                     <div className="text-center mb-10">
@@ -169,7 +164,6 @@ function AboutPage() {
                 </div>
             </section>
 
-            {/* Vision Section - Spacing reduced from py-24 to py-14 */}
             <section className="py-12 md:py-14 bg-background">
                 <div className="container-wide max-w-2xl text-center">
                     <Target className="size-12 text-[#3482B9] mx-auto mb-4" />

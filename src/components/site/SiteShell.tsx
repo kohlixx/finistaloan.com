@@ -148,7 +148,7 @@ function Footer() {
                     <p className="max-w-xs text-sm text-gray-400 leading-relaxed">
                         FININSTA is Delhi NCR’s premier financial consultancy. We specialize in fast, hassle-free loan approvals and financial guidance across New Delhi, Gurugram, Noida, and PAN India.
                     </p>
-
+                    
                     <div className="flex items-center gap-3 pt-2">
                         <a href="https://www.facebook.com/profile.php?id=61595318122566" target="_blank" rel="noreferrer" className="p-2.5 bg-white/5 rounded-full text-gray-400 hover:text-white hover:bg-[#1877F2] transition-all shadow-sm">
                             <Facebook size={18} />
@@ -159,7 +159,7 @@ function Footer() {
                         <a href="https://www.youtube.com/@FININSTAFINANCIALSERVICES" target="_blank" rel="noreferrer" className="p-2.5 bg-white/5 rounded-full text-gray-400 hover:text-white hover:bg-[#FF0000] transition-all shadow-sm">
                             <Youtube size={18} />
                         </a>
-                        <a href="https://www.linkedin.com/in/fininstafinancial-services-596425441" target="_blank" rel="noreferrer" className="p-2.5 bg-white/5 rounded-full text-gray-400 hover:text-white hover:bg-[#0A66C2] transition-all shadow-sm">
+                        <a href="https://www.linkedin.com/in/fininsta-financial-services-34723a445?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noreferrer" className="p-2.5 bg-white/5 rounded-full text-gray-400 hover:text-white hover:bg-[#0A66C2] transition-all shadow-sm">
                             <Linkedin size={18} />
                         </a>
                         <a href="https://x.com/FININSTALoan" target="_blank" rel="noreferrer" className="p-2.5 bg-white/5 rounded-full text-gray-400 hover:text-white hover:bg-[#1DA1F2] transition-all shadow-sm">
