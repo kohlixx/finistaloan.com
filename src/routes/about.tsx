@@ -17,65 +17,63 @@ export const Route = createFileRoute("/about")({
 function AboutPage() {
     return (
         <>
-            <section className="bg-gradient-to-r from-[#0A1325] via-[#0F254B] to-[#3482B9] py-12 lg:py-16 overflow-hidden">
+            <section className="bg-gradient-to-r from-[#0A1325] via-[#0F254B] to-[#3482B9] py-10 lg:py-12 overflow-hidden">
                 <div className="container-wide">
                     <motion.span 
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
-                        className="eyebrow block text-[#93C5FD] font-bold tracking-[0.15em] mb-2 text-xs uppercase"
+                        className="eyebrow block text-[#93C5FD] font-bold tracking-[0.15em] mb-1.5 text-xs uppercase"
                     >
                         About The Company
                     </motion.span>
                     
-                    {/* Yahan Heading par Slide-In aur Fade animation lagaya gaya hai */}
                     <motion.h1 
-                        initial={{ opacity: 0, x: -50 }}
+                        initial={{ opacity: 0, x: -40 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-                        className="font-heading text-3xl font-bold sm:text-4xl text-white"
+                        transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+                        className="font-heading text-2xl font-bold sm:text-3xl lg:text-4xl text-white"
                     >
                         Making Finance Simple, Fast, and Transparent.
                     </motion.h1>
                     
-                    {/* Paragraph par bhi halka sa delay motion de diya hai */}
                     <motion.p 
-                        initial={{ opacity: 0, x: -30 }}
+                        initial={{ opacity: 0, x: -25 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
-                        className="mt-3 max-w-2xl text-base text-blue-100/90"
+                        transition={{ duration: 0.6, ease: "easeOut", delay: 0.25 }}
+                        className="mt-2.5 max-w-2xl text-sm md:text-base text-blue-100/90"
                     >
                         FININSTA is Delhi NCR’s most trusted financial consultancy, dedicated to bridging the gap between borrowers and top-tier banks with instant facilitation.
                     </motion.p>
                 </div>
             </section>
 
-            {/* Founder Section */}
-            <section className="py-24 bg-background">
+            {/* Founder Section - Spacing reduced from py-24 to py-12 md:py-14 */}
+            <section className="py-12 md:py-14 bg-background">
                 <div className="container-wide">
-                    <div className="flex flex-col lg:flex-row items-center gap-16">
+                    <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
 
                         {/* Founder Image */}
                         <motion.div
-                            initial={{ opacity: 0, x: -50 }}
+                            initial={{ opacity: 0, x: -40 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             className="w-full lg:w-2/5 relative"
                         >
-                            <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl relative bg-gradient-to-tr from-[#0F254B] to-[#3482B9] p-1">
+                            <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-xl relative bg-gradient-to-tr from-[#0F254B] to-[#3482B9] p-1">
                                 <img
                                     src="/founder.jpg"
                                     alt="Gaurav Kumar Chandna - Founder FININSTA"
-                                    className="w-full h-full object-cover rounded-[22px] bg-white"
+                                    className="w-full h-full object-cover rounded-[14px] bg-white"
                                     onError={(e) => {
                                         e.currentTarget.style.display = 'none';
                                         e.currentTarget.parentElement!.innerHTML = `
-                                            <div class="w-full h-full bg-[#F8FBFE] rounded-[22px] flex flex-col items-center justify-center p-8 text-center">
-                                                <div class="size-24 rounded-full bg-[#3482B9]/10 flex items-center justify-center mb-4">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#3482B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                            <div class="w-full h-full bg-[#F8FBFE] rounded-[14px] flex flex-col items-center justify-center p-6 text-center">
+                                                <div class="size-20 rounded-full bg-[#3482B9]/10 flex items-center justify-center mb-3">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#3482B9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                                                 </div>
-                                                <h3 class="text-2xl font-bold text-[#0F254B]">Gaurav Kumar Chandna</h3>
-                                                <p class="text-xs text-[#3482B9] mt-4 font-bold uppercase">(Add founder.jpg in public folder)</p>
+                                                <h3 class="text-xl font-bold text-[#0F254B]">Gaurav Kumar Chandna</h3>
+                                                <p class="text-xs text-[#3482B9] mt-2 font-bold uppercase">(Add founder.jpg in public folder)</p>
                                             </div>
                                         `;
                                     }}
@@ -85,19 +83,19 @@ function AboutPage() {
 
                         {/* Founder Details */}
                         <motion.div
-                            initial={{ opacity: 0, x: 50 }}
+                            initial={{ opacity: 0, x: 40 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             className="w-full lg:w-3/5"
                         >
-                            <h2 className="text-4xl md:text-5xl font-bold font-heading text-[#0F254B] mb-2">
+                            <h2 className="text-3xl md:text-4xl font-bold font-heading text-[#0F254B] mb-1.5">
                                 Gaurav Kumar Chandna
                             </h2>
-                            <p className="text-xl text-[#3482B9] font-semibold mb-6">
+                            <p className="text-lg text-[#3482B9] font-semibold mb-4">
                                 Founder & Director
                             </p>
 
-                            <div className="prose prose-lg text-muted-foreground mb-8">
+                            <div className="prose text-muted-foreground mb-6 text-sm md:text-base leading-relaxed space-y-3">
                                 <p>
                                     With over <strong>15+ years of extensive experience</strong> in the banking and finance sector, Gaurav Kumar Chandna established FININSTA with one primary vision: <strong>"Instant facilitation for finances."</strong>
                                 </p>
@@ -110,19 +108,19 @@ function AboutPage() {
                             </div>
 
                             {/* Key Achievements Grid */}
-                            <div className="grid sm:grid-cols-2 gap-4 mb-8">
-                                <div className="bg-[#F8FBFE] p-4 rounded-xl border border-[#3482B9]/20 flex items-center gap-4">
-                                    <div className="p-3 bg-[#3482B9]/10 rounded-lg text-[#3482B9]"><Briefcase size={24} /></div>
+                            <div className="grid sm:grid-cols-2 gap-3 mb-6">
+                                <div className="bg-[#F8FBFE] p-3.5 rounded-xl border border-[#3482B9]/20 flex items-center gap-3">
+                                    <div className="p-2.5 bg-[#3482B9]/10 rounded-lg text-[#3482B9]"><Briefcase size={20} /></div>
                                     <div>
-                                        <h4 className="font-bold text-[#0F254B] text-xl">15+ Years</h4>
-                                        <p className="text-xs text-muted-foreground uppercase font-bold tracking-wider">Industry Experience</p>
+                                        <h4 className="font-bold text-[#0F254B] text-lg">15+ Years</h4>
+                                        <p className="text-[11px] text-muted-foreground uppercase font-bold tracking-wider">Industry Experience</p>
                                     </div>
                                 </div>
-                                <div className="bg-[#F8FBFE] p-4 rounded-xl border border-[#3482B9]/20 flex items-center gap-4">
-                                    <div className="p-3 bg-[#3482B9]/10 rounded-lg text-[#3482B9]"><Home size={24} /></div>
+                                <div className="bg-[#F8FBFE] p-3.5 rounded-xl border border-[#3482B9]/20 flex items-center gap-3">
+                                    <div className="p-2.5 bg-[#3482B9]/10 rounded-lg text-[#3482B9]"><Home size={20} /></div>
                                     <div>
-                                        <h4 className="font-bold text-[#0F254B] text-xl">Home Loans</h4>
-                                        <p className="text-xs text-muted-foreground uppercase font-bold tracking-wider">Core Expertise</p>
+                                        <h4 className="font-bold text-[#0F254B] text-lg">Home Loans</h4>
+                                        <p className="text-[11px] text-muted-foreground uppercase font-bold tracking-wider">Core Expertise</p>
                                     </div>
                                 </div>
                             </div>
@@ -131,9 +129,9 @@ function AboutPage() {
                                 href="https://www.linkedin.com/in/fininstafinancial-services-596425441"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 bg-[#0077b5] hover:bg-[#005885] text-white px-6 py-3 rounded-xl font-medium transition-colors shadow-lg hover:shadow-xl"
+                                className="inline-flex items-center gap-2 bg-[#0A66C2] hover:bg-[#004182] text-white px-5 py-2.5 rounded-xl font-medium transition-colors shadow-md hover:shadow-lg text-sm"
                             >
-                                <Linkedin size={20} /> Connect on LinkedIn
+                                <Linkedin size={18} /> Connect on LinkedIn
                             </a>
 
                         </motion.div>
@@ -141,42 +139,42 @@ function AboutPage() {
                 </div>
             </section>
 
-            {/* Huge Milestones Section */}
-            <section className="py-20 bg-[#0F254B] text-white">
+            {/* Huge Milestones Section - Spacing reduced from py-20 to py-12 */}
+            <section className="py-12 bg-[#0F254B] text-white">
                 <div className="container-wide">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold font-heading mb-4">A Legacy of Trust & Growth</h2>
-                        <p className="text-gray-400 max-w-2xl mx-auto">Our numbers speak for the dedication and hard work we put into every single file that comes to our desk.</p>
+                    <div className="text-center mb-10">
+                        <h2 className="text-2xl md:text-3xl font-bold font-heading mb-2">A Legacy of Trust & Growth</h2>
+                        <p className="text-gray-400 text-sm max-w-xl mx-auto">Our numbers speak for the dedication and hard work we put into every single file that comes to our desk.</p>
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
                         <motion.div
-                            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                            className="bg-white/5 border border-white/10 p-8 rounded-3xl text-center backdrop-blur-sm"
+                            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                            className="bg-white/5 border border-white/10 p-6 rounded-2xl text-center backdrop-blur-sm"
                         >
-                            <Users className="size-12 text-[#3482B9] mx-auto mb-4" />
-                            <h3 className="text-5xl font-numbers font-bold text-white mb-2">10,000+</h3>
-                            <p className="text-lg text-gray-300">Happy Clients Assisted</p>
+                            <Users className="size-10 text-[#3482B9] mx-auto mb-3" />
+                            <h3 className="text-4xl font-numbers font-bold text-white mb-1">10,000+</h3>
+                            <p className="text-sm text-gray-300">Happy Clients Assisted</p>
                         </motion.div>
 
                         <motion.div
-                            initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
-                            className="bg-white/5 border border-white/10 p-8 rounded-3xl text-center backdrop-blur-sm"
+                            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+                            className="bg-white/5 border border-white/10 p-6 rounded-2xl text-center backdrop-blur-sm"
                         >
-                            <Building className="size-12 text-[#3482B9] mx-auto mb-4" />
-                            <h3 className="text-5xl font-numbers font-bold text-white mb-2">₹1,000+ Cr</h3>
-                            <p className="text-lg text-gray-300">Total Loans Disbursed</p>
+                            <Building className="size-10 text-[#3482B9] mx-auto mb-3" />
+                            <h3 className="text-4xl font-numbers font-bold text-white mb-1">₹1,000+ Cr</h3>
+                            <p className="text-sm text-gray-300">Total Loans Disbursed</p>
                         </motion.div>
                     </div>
                 </div>
             </section>
 
-            {/* Vision Section */}
-            <section className="py-24 bg-background">
-                <div className="container-wide max-w-3xl text-center">
-                    <Target className="size-16 text-[#3482B9] mx-auto mb-6" />
-                    <h2 className="text-3xl md:text-4xl font-bold font-heading text-[#0F254B] mb-6">Our Core Vision</h2>
-                    <p className="text-xl text-muted-foreground leading-relaxed italic">
+            {/* Vision Section - Spacing reduced from py-24 to py-14 */}
+            <section className="py-12 md:py-14 bg-background">
+                <div className="container-wide max-w-2xl text-center">
+                    <Target className="size-12 text-[#3482B9] mx-auto mb-4" />
+                    <h2 className="text-2xl md:text-3xl font-bold font-heading text-[#0F254B] mb-3">Our Core Vision</h2>
+                    <p className="text-base text-muted-foreground leading-relaxed italic">
                         "To provide absolute instant facilitation for finances. We believe that borrowing money shouldn't be a hurdle, it should be a stepping stone to your success."
                     </p>
                 </div>
