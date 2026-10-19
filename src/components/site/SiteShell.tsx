@@ -117,9 +117,10 @@ function Footer() {
 
                 {/* Brand & Identity & Socials */}
                 <div className="space-y-6">
-                    <Logo />
-                    <p className="max-w-xs text-sm text-gray-400 leading-relaxed">FININSTA is Delhi NCR’s premier financial consultancy. We specialize in fast, hassle-free loan approvals and financial guidance across New Delhi, Gurugram, Noida, and PAN India.</p>
+                    {/* BAS YAHAN CHANGE KARNA HAI 👇 */}
+                    <Logo isFooter={true} />
 
+                    <p className="max-w-xs text-sm text-gray-400 leading-relaxed">FININSTA is Delhi NCR’s premier financial consultancy... (baaki ka code waisa hi rahega)</p>
                     {/* Social Media Icons (Working Links) */}
                     <div className="flex items-center gap-3 pt-2">
                         <a href="https://www.facebook.com/profile.php?id=61595318122566" target="_blank" rel="noreferrer" className="p-2.5 bg-white/5 rounded-full text-gray-400 hover:text-white hover:bg-[#1877F2] transition-all shadow-sm">

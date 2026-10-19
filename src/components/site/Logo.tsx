@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 
-export function Logo() {
+// Yahan humne 'isFooter' add kar diya hai
+export function Logo({ isFooter = false }: { isFooter?: boolean }) {
     return (
         <Link
             to="/"
@@ -14,12 +15,13 @@ export function Logo() {
                 className="size-10 object-contain transition-transform duration-300 group-hover:scale-105"
             />
 
-            {/* Text theme logo ke colors ke hisaab se (Deep Navy Blue aur Light Blue) */}
             <span>
-                <b className="block font-heading text-xl leading-none text-[#0F254B]">
+                {/* Agar isFooter true hai toh White color, warna Dark Navy */}
+                <b className={`block font-heading text-xl leading-none ${isFooter ? "text-white" : "text-[#0F254B]"}`}>
                     FININSTA
                 </b>
-                <small className="mt-1 block text-[9px] font-semibold uppercase tracking-[.18em] text-[#3482B9]">
+                {/* Niche wala chota text bhi light/dark ke hisaab se adjust hoga */}
+                <small className={`mt-1 block text-[9px] font-semibold uppercase tracking-[.18em] ${isFooter ? "text-[#93C5FD]" : "text-[#3482B9]"}`}>
                     Financial Services
                 </small>
             </span>
