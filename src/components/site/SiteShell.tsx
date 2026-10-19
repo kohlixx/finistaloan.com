@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Logo } from "./Logo";
 import { allServices, whatsappUrl } from "@/content/site";
 
-// Nav array me Banks aur NBFC add kar diya gaya hai
 const nav = [
     { label: "Home", to: "/" },
     { label: "About", to: "/about" },
@@ -40,11 +39,8 @@ export function SiteShell({ children }: { children: ReactNode }) {
                 <div className="container-wide flex h-16 items-center justify-between sm:h-20">
                     <Logo />
                     <nav className="hidden items-center gap-6 lg:flex">
-
-                        {/* Home aur About Links */}
                         {nav.slice(0, 2).map(n => <Link key={n.to} to={n.to} className="nav-link hover:text-[#3482B9] transition-colors" activeProps={{ className: "text-[#0F254B] font-bold" }}>{n.label}</Link>)}
 
-                        {/* Loans Dropdown */}
                         <div className="group relative">
                             <Button variant="ghost" className="nav-link gap-1 px-1 hover:text-[#3482B9] hover:bg-transparent">Loans <ChevronDown className="size-3.5" /></Button>
                             <div className="invisible absolute left-1/2 top-full grid w-[620px] -translate-x-1/2 grid-cols-2 gap-1 rounded-lg border bg-popover p-3 opacity-0 shadow-xl transition-all group-hover:visible group-hover:opacity-100">
@@ -55,7 +51,6 @@ export function SiteShell({ children }: { children: ReactNode }) {
                             </div>
                         </div>
 
-                        {/* Banks, NBFC, aur baaki ke links */}
                         {nav.slice(2).map(n => <Link key={n.to} to={n.to} className="nav-link hover:text-[#3482B9] transition-colors" activeProps={{ className: "text-[#0F254B] font-bold" }}>{n.label}</Link>)}
                     </nav>
 
@@ -71,7 +66,6 @@ export function SiteShell({ children }: { children: ReactNode }) {
                     </Button>
                 </div>
 
-                {/* Mobile Menu */}
                 {open && (
                     <nav className="max-h-[calc(100svh-4rem)] overflow-y-auto border-t bg-background p-3 lg:hidden">
                         {nav.map(n => <Link key={n.to} to={n.to} onClick={() => setOpen(false)} className="block rounded-md px-3 py-3 font-medium hover:bg-[#F8FBFE] text-[#0F254B]">{n.label}</Link>)}
@@ -114,14 +108,13 @@ function Footer() {
     return (
         <footer className="bg-[#0A1325] pb-24 pt-12 md:pt-16 text-white md:pb-8 border-t-4 border-[#3482B9]">
             <div className="container-wide grid gap-10 md:grid-cols-4">
-
-                {/* Brand & Identity & Socials */}
                 <div className="space-y-6">
-                    {/* BAS YAHAN CHANGE KARNA HAI 👇 */}
                     <Logo isFooter={true} />
-
-                    <p className="max-w-xs text-sm text-gray-400 leading-relaxed">FININSTA is Delhi NCR’s premier financial consultancy... (baaki ka code waisa hi rahega)</p>
-                    {/* Social Media Icons (Working Links) */}
+                    {/* Yahan par wo extra text hata kar correct paragraph laga diya hai */}
+                    <p className="max-w-xs text-sm text-gray-400 leading-relaxed">
+                        FININSTA is Delhi NCR’s premier financial consultancy. We specialize in fast, hassle-free loan approvals and financial guidance across New Delhi, Gurugram, Noida, and PAN India.
+                    </p>
+                    
                     <div className="flex items-center gap-3 pt-2">
                         <a href="https://www.facebook.com/profile.php?id=61595318122566" target="_blank" rel="noreferrer" className="p-2.5 bg-white/5 rounded-full text-gray-400 hover:text-white hover:bg-[#1877F2] transition-all shadow-sm">
                             <Facebook size={18} />
@@ -141,7 +134,6 @@ function Footer() {
                     </div>
                 </div>
 
-                {/* Explore Links */}
                 <div>
                     <h3 className="font-heading font-bold text-lg mb-5">Explore</h3>
                     <div className="grid gap-3 text-sm text-gray-400">
@@ -152,7 +144,6 @@ function Footer() {
                     </div>
                 </div>
 
-                {/* NCR SEO Links */}
                 <div>
                     <h3 className="font-heading font-bold text-lg mb-5">NCR Services</h3>
                     <div className="grid gap-3 text-sm text-gray-400">
@@ -164,7 +155,6 @@ function Footer() {
                     </div>
                 </div>
 
-                {/* Contact & Trust Signals */}
                 <div>
                     <h3 className="font-heading font-bold text-lg mb-5">Speak to us</h3>
                     <div className="space-y-4 text-sm text-gray-400">
@@ -176,7 +166,6 @@ function Footer() {
                 </div>
             </div>
 
-            {/* Bottom Bar: Copyright & Trademark */}
             <div className="container-wide mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-gray-500 md:flex-row md:justify-between items-center">
                 <div className="text-center md:text-left space-y-1.5">
                     <span>© {new Date().getFullYear()} FININSTA Financial Services. All rights reserved.</span>
