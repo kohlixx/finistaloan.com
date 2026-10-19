@@ -23,9 +23,9 @@ export function SiteShell({ children }: { children: ReactNode }) {
     useRouterState({ select: s => s.location.pathname });
 
     useEffect(() => {
-        const fn = () => setTop(scrollY > 500);
-        addEventListener("scroll", fn);
-        return () => removeEventListener("scroll", fn);
+        const fn = () => setTop(window.scrollY > 500);
+        window.addEventListener("scroll", fn);
+        return () => window.removeEventListener("scroll", fn);
     }, []);
 
     useEffect(() => {
@@ -39,23 +39,42 @@ export function SiteShell({ children }: { children: ReactNode }) {
                 <div className="container-wide flex h-16 items-center justify-between sm:h-20">
                     <Logo />
                     <nav className="hidden items-center gap-6 lg:flex">
-                        {nav.slice(0, 2).map(n => <Link key={n.to} to={n.to} className="nav-link hover:text-[#3482B9] transition-colors" activeProps={{ className: "text-[#0F254B] font-bold" }}>{n.label}</Link>)}
+                        {nav.slice(0, 2).map(n => (
+                            <Link key={n.to} to={n.to} className="nav-link hover:text-[#3482B9] transition-colors" activeProps={{ className: "text-[#0F254B] font-bold" }}>
+                                {n.label}
+                            </Link>
+                        ))}
 
                         <div className="group relative">
-                            <Button variant="ghost" className="nav-link gap-1 px-1 hover:text-[#3482B9] hover:bg-transparent">Loans <ChevronDown className="size-3.5" /></Button>
+                            <Button variant="ghost" className="nav-link gap-1 px-1 hover:text-[#3482B9] hover:bg-transparent">
+                                Loans <ChevronDown className="size-3.5" />
+                            </Button>
                             <div className="invisible absolute left-1/2 top-full grid w-[620px] -translate-x-1/2 grid-cols-2 gap-1 rounded-lg border bg-popover p-3 opacity-0 shadow-xl transition-all group-hover:visible group-hover:opacity-100">
-                                {allServices.map(s => s.slug === "investment-insurance" ?
-                                    <Link key={s.slug} to="/investment-insurance" className="rounded-md p-3 hover:bg-[#F8FBFE] hover:border-[#3482B9]/20 border border-transparent transition-all"><span className="font-semibold text-[#0F254B]">{s.title}</span><span className="block text-xs text-muted-foreground">{s.short}</span></Link> :
-                                    <Link key={s.slug} to="/loans/$slug" params={{ slug: s.slug }} className="rounded-md p-3 hover:bg-[#F8FBFE] hover:border-[#3482B9]/20 border border-transparent transition-all"><span className="font-semibold text-[#0F254B]">{s.title}</span><span className="block text-xs text-muted-foreground">{s.short}</span></Link>
-                                )}
+                                {allServices.map(s => s.slug === "investment-insurance" ? (
+                                    <Link key={s.slug} to="/investment-insurance" className="rounded-md p-3 hover:bg-[#F8FBFE] hover:border-[#3482B9]/20 border border-transparent transition-all">
+                                        <span className="font-semibold text-[#0F254B]">{s.title}</span>
+                                        <span className="block text-xs text-muted-foreground">{s.short}</span>
+                                    </Link>
+                                ) : (
+                                    <Link key={s.slug} to="/loans/$slug" params={{ slug: s.slug }} className="rounded-md p-3 hover:bg-[#F8FBFE] hover:border-[#3482B9]/20 border border-transparent transition-all">
+                                        <span className="font-semibold text-[#0F254B]">{s.title}</span>
+                                        <span className="block text-xs text-muted-foreground">{s.short}</span>
+                                    </Link>
+                                ))}
                             </div>
                         </div>
 
-                        {nav.slice(2).map(n => <Link key={n.to} to={n.to} className="nav-link hover:text-[#3482B9] transition-colors" activeProps={{ className: "text-[#0F254B] font-bold" }}>{n.label}</Link>)}
+                        {nav.slice(2).map(n => (
+                            <Link key={n.to} to={n.to} className="nav-link hover:text-[#3482B9] transition-colors" activeProps={{ className: "text-[#0F254B] font-bold" }}>
+                                {n.label}
+                            </Link>
+                        ))}
                     </nav>
 
                     <div className="hidden items-center gap-2 lg:flex">
-                        <Button variant="ghost" size="icon" onClick={() => setDark(v => !v)} aria-label="Toggle colour theme">{dark ? <Sun /> : <Moon />}</Button>
+                        <Button variant="ghost" size="icon" onClick={() => setDark(v => !v)} aria-label="Toggle colour theme">
+                            {dark ? <Sun /> : <Moon />}
+                        </Button>
                         <Button asChild className="bg-[#0F254B] hover:bg-[#3482B9] text-white transition-colors hover:shadow-lg hover:scale-105">
                             <a href={whatsappUrl("I want to apply for a loan with FININSTA.")} target="_blank" rel="noreferrer">Apply now</a>
                         </Button>
@@ -68,13 +87,22 @@ export function SiteShell({ children }: { children: ReactNode }) {
 
                 {open && (
                     <nav className="max-h-[calc(100svh-4rem)] overflow-y-auto border-t bg-background p-3 lg:hidden">
-                        {nav.map(n => <Link key={n.to} to={n.to} onClick={() => setOpen(false)} className="block rounded-md px-3 py-3 font-medium hover:bg-[#F8FBFE] text-[#0F254B]">{n.label}</Link>)}
+                        {nav.map(n => (
+                            <Link key={n.to} to={n.to} onClick={() => setOpen(false)} className="block rounded-md px-3 py-3 font-medium hover:bg-[#F8FBFE] text-[#0F254B]">
+                                {n.label}
+                            </Link>
+                        ))}
                         <p className="px-3 pb-1 pt-3 text-xs font-bold uppercase text-[#3482B9]">Loan services</p>
                         <div className="grid grid-cols-2 gap-1">
-                            {allServices.slice(0, 8).map(s => s.slug === "investment-insurance" ?
-                                <Link key={s.slug} to="/investment-insurance" onClick={() => setOpen(false)} className="rounded-md px-3 py-2 text-sm hover:bg-[#F8FBFE] text-[#0F254B]">{s.title}</Link> :
-                                <Link key={s.slug} to="/loans/$slug" params={{ slug: s.slug }} onClick={() => setOpen(false)} className="rounded-md px-3 py-2 text-sm hover:bg-[#F8FBFE] text-[#0F254B]">{s.title}</Link>
-                            )}
+                            {allServices.slice(0, 8).map(s => s.slug === "investment-insurance" ? (
+                                <Link key={s.slug} to="/investment-insurance" onClick={() => setOpen(false)} className="rounded-md px-3 py-2 text-sm hover:bg-[#F8FBFE] text-[#0F254B]">
+                                    {s.title}
+                                </Link>
+                            ) : (
+                                <Link key={s.slug} to="/loans/$slug" params={{ slug: s.slug }} onClick={() => setOpen(false)} className="rounded-md px-3 py-2 text-sm hover:bg-[#F8FBFE] text-[#0F254B]">
+                                    {s.title}
+                                </Link>
+                            ))}
                         </div>
                         <Button asChild className="mt-3 w-full bg-[#0F254B] hover:bg-[#3482B9] text-white">
                             <a href={whatsappUrl()} target="_blank" rel="noreferrer"><MessageCircle className="mr-2 size-4" />Apply Now on WhatsApp</a>
@@ -89,9 +117,16 @@ export function SiteShell({ children }: { children: ReactNode }) {
 
             <div className="fixed bottom-20 right-3 z-40 flex flex-col items-end gap-2 md:bottom-5 md:right-5">
                 <Button asChild className="h-12 gap-2 rounded-full px-4 shadow-xl bg-[#25D366] hover:bg-[#128C7E] text-white hover:scale-105 transition-all" aria-label="Chat on WhatsApp">
-                    <a href={whatsappUrl()} target="_blank" rel="noreferrer"><MessageCircle className="size-5" /><span className="hidden sm:inline">Chat on WhatsApp</span></a>
+                    <a href={whatsappUrl()} target="_blank" rel="noreferrer">
+                        <MessageCircle className="size-5" />
+                        <span className="hidden sm:inline">Chat on WhatsApp</span>
+                    </a>
                 </Button>
-                {top && <Button size="icon" className="size-11 rounded-full shadow-lg bg-white border border-[#3482B9]/20 text-[#0F254B] hover:bg-[#F8FBFE]" onClick={() => scrollTo({ top: 0, behavior: "smooth" })} aria-label="Back to top"><ArrowUp /></Button>}
+                {top && (
+                    <Button size="icon" className="size-11 rounded-full shadow-lg bg-white border border-[#3482B9]/20 text-[#0F254B] hover:bg-[#F8FBFE]" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label="Back to top">
+                        <ArrowUp />
+                    </Button>
+                )}
             </div>
 
             <nav className="fixed inset-x-2 bottom-2 z-30 flex h-16 items-center justify-around rounded-lg border bg-background/95 px-1 shadow-2xl backdrop-blur-xl md:hidden">
@@ -110,11 +145,10 @@ function Footer() {
             <div className="container-wide grid gap-10 md:grid-cols-4">
                 <div className="space-y-6">
                     <Logo isFooter={true} />
-                    {/* Yahan par wo extra text hata kar correct paragraph laga diya hai */}
                     <p className="max-w-xs text-sm text-gray-400 leading-relaxed">
                         FININSTA is Delhi NCR’s premier financial consultancy. We specialize in fast, hassle-free loan approvals and financial guidance across New Delhi, Gurugram, Noida, and PAN India.
                     </p>
-                    
+
                     <div className="flex items-center gap-3 pt-2">
                         <a href="https://www.facebook.com/profile.php?id=61595318122566" target="_blank" rel="noreferrer" className="p-2.5 bg-white/5 rounded-full text-gray-400 hover:text-white hover:bg-[#1877F2] transition-all shadow-sm">
                             <Facebook size={18} />
