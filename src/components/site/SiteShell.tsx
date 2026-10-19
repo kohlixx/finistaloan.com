@@ -1,6 +1,6 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
-import { ArrowUp, Calculator, ChevronDown, House, Menu, MessageCircle, Moon, Phone, Sun, X } from "lucide-react";
+import { ArrowUp, Calculator, ChevronDown, House, Menu, MessageCircle, Moon, Phone, Sun, X, Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Logo } from "./Logo";
 import { allServices, whatsappUrl } from "@/content/site";
@@ -112,19 +112,38 @@ export function SiteShell({ children }: { children: ReactNode }) {
 
 function Footer() {
     return (
-        <footer className="bg-[#0A1325] pb-24 pt-16 text-white md:pb-8 border-t-4 border-[#3482B9]">
+        <footer className="bg-[#0A1325] pb-24 pt-12 md:pt-16 text-white md:pb-8 border-t-4 border-[#3482B9]">
             <div className="container-wide grid gap-10 md:grid-cols-4">
 
-                {/* Brand & Identity */}
-                <div>
+                {/* Brand & Identity & Socials */}
+                <div className="space-y-6">
                     <Logo />
-                    <p className="mt-5 max-w-xs text-sm text-gray-400 leading-relaxed">FININSTA is Delhi NCR’s premier financial consultancy. We specialize in fast, hassle-free loan approvals and financial guidance across New Delhi, Gurugram, Noida, and PAN India.</p>
+                    <p className="max-w-xs text-sm text-gray-400 leading-relaxed">FININSTA is Delhi NCR’s premier financial consultancy. We specialize in fast, hassle-free loan approvals and financial guidance across New Delhi, Gurugram, Noida, and PAN India.</p>
+
+                    {/* Social Media Icons (Working Links) */}
+                    <div className="flex items-center gap-3 pt-2">
+                        <a href="https://www.facebook.com/profile.php?id=61595318122566" target="_blank" rel="noreferrer" className="p-2.5 bg-white/5 rounded-full text-gray-400 hover:text-white hover:bg-[#1877F2] transition-all shadow-sm">
+                            <Facebook size={18} />
+                        </a>
+                        <a href="https://www.instagram.com/fininstafinancial/" target="_blank" rel="noreferrer" className="p-2.5 bg-white/5 rounded-full text-gray-400 hover:text-white hover:bg-[#E1306C] transition-all shadow-sm">
+                            <Instagram size={18} />
+                        </a>
+                        <a href="https://www.youtube.com/@FININSTAFINANCIALSERVICES" target="_blank" rel="noreferrer" className="p-2.5 bg-white/5 rounded-full text-gray-400 hover:text-white hover:bg-[#FF0000] transition-all shadow-sm">
+                            <Youtube size={18} />
+                        </a>
+                        <a href="https://www.linkedin.com/in/fininstafinancial-services-596425441" target="_blank" rel="noreferrer" className="p-2.5 bg-white/5 rounded-full text-gray-400 hover:text-white hover:bg-[#0A66C2] transition-all shadow-sm">
+                            <Linkedin size={18} />
+                        </a>
+                        <a href="https://x.com/FININSTALoan" target="_blank" rel="noreferrer" className="p-2.5 bg-white/5 rounded-full text-gray-400 hover:text-white hover:bg-[#1DA1F2] transition-all shadow-sm">
+                            <Twitter size={18} />
+                        </a>
+                    </div>
                 </div>
 
                 {/* Explore Links */}
                 <div>
-                    <h3 className="font-heading font-bold text-lg mb-6">Explore</h3>
-                    <div className="mt-4 grid gap-3 text-sm text-gray-400">
+                    <h3 className="font-heading font-bold text-lg mb-5">Explore</h3>
+                    <div className="grid gap-3 text-sm text-gray-400">
                         <Link to="/about" className="hover:text-[#3482B9] transition-colors">About us</Link>
                         <Link to="/calculator" className="hover:text-[#3482B9] transition-colors">EMI calculator</Link>
                         <Link to="/blogs" className="hover:text-[#3482B9] transition-colors">Financial guides</Link>
@@ -134,8 +153,8 @@ function Footer() {
 
                 {/* NCR SEO Links */}
                 <div>
-                    <h3 className="font-heading font-bold text-lg mb-6">NCR Services</h3>
-                    <div className="mt-4 grid gap-3 text-sm text-gray-400">
+                    <h3 className="font-heading font-bold text-lg mb-5">NCR Services</h3>
+                    <div className="grid gap-3 text-sm text-gray-400">
                         <Link to="/loans/$slug" params={{ slug: "home-loan" }} className="hover:text-[#3482B9] transition-colors">Home Loan in Delhi</Link>
                         <Link to="/loans/$slug" params={{ slug: "personal-loan" }} className="hover:text-[#3482B9] transition-colors">Personal Loan in Gurugram</Link>
                         <Link to="/loans/$slug" params={{ slug: "business-loan" }} className="hover:text-[#3482B9] transition-colors">Business Loan in Noida</Link>
@@ -146,13 +165,12 @@ function Footer() {
 
                 {/* Contact & Trust Signals */}
                 <div>
-                    <h3 className="font-heading font-bold text-lg mb-6">Speak to us</h3>
-                    <div className="space-y-4 text-sm text-gray-400 mt-4">
+                    <h3 className="font-heading font-bold text-lg mb-5">Speak to us</h3>
+                    <div className="space-y-4 text-sm text-gray-400">
                         <p>Delhi NCR Headquarters<br />Serving PAN India</p>
                         <a href="tel:+917827881951" className="block font-numbers text-lg font-semibold text-white hover:text-[#3482B9] transition-colors">+91 78278 81951</a>
-                        {/* Yahan Email Id add ki gayi hai */}
                         <a href="mailto:info@fininstafinancialservices.com" className="block font-medium text-white hover:text-[#3482B9] transition-colors">info@fininstafinancialservices.com</a>
-                        <p className="pt-2 text-xs text-[#3482B9]">Available 24x7 on WhatsApp</p>
+                        <p className="pt-1 text-xs text-[#3482B9]">Available 24x7 on WhatsApp</p>
                     </div>
                 </div>
             </div>
